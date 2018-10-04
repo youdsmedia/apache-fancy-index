@@ -1,0 +1,37 @@
+# ENABLE DIRECTORY VIEWS
+Options +Indexes
+
+# STRONG HTACCESS PROTECTION
+<Files ~ "^.*\.([Hh][Tt][Aa])">
+ order allow,deny
+ deny from all
+</Files>
+
+# DIRECTORY CUSTOMIZATION
+<IfModule mod_autoindex.c>
+
+  # SET INDEX OPTIONS
+  IndexOptions IgnoreCase FancyIndexing HTMLTable FoldersFirst VersionSort NameWidth=* DescriptionWidth=*  
+
+  # Other options.
+  # IconsAreLinks SuppressColumnSorting
+
+  # SET DISPLAY ORDER
+  IndexOrderDefault Ascending Name
+
+  # SPECIFY STYLE SHEER
+  IndexStyleSheet fancy-index/style.css
+
+  # SPECIFY HEADER FILE
+  HeaderName fancy-index/header.html
+
+  # SPECIFY FOOTER FILE
+
+  # IGNORE THESE FILES
+  IndexIgnore .ftpquota .DS_Store .git
+
+  # DEFAULT ICON
+	IndexIgnore fancy-index .localized
+
+
+</IfModule>
